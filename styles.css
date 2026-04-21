@@ -114,6 +114,10 @@ ul {
   position: relative;
 }
 
+#platos {
+  padding: 160px 0; /* Increased distance from hero and bottom */
+}
+
 .section--white {
   background: var(--white);
 }
@@ -569,8 +573,8 @@ ul {
 .dishes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1000px;
+  gap: 32px;
+  max-width: 1350px; /* Increased by 35% from 1000px */
   margin: 0 auto;
 }
 
