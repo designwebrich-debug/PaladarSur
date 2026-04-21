@@ -105,16 +105,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── PARALLAX EFFECT ON HERO ─────────────────────────────────
   const heroBgImg = document.querySelector('.hero__bg-img');
+  const heroContentContainer = document.querySelector('.hero__content');
 
   function handleParallax() {
-    if (!heroBgImg) return;
     const scrollY = window.scrollY;
-    const heroHeight = document.querySelector('.hero').offsetHeight;
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    const heroHeight = hero.offsetHeight;
     
     if (scrollY <= heroHeight) {
-      const translate = scrollY * 0.3;
-      const scale = 1 + (scrollY * 0.0002);
-      heroBgImg.style.transform = `translateY(${translate}px) scale(${scale})`;
+      // Background Image Parallax
+      if (heroBgImg) {
+        const translate = scrollY * 0.3;
+        const scale = 1 + (scrollY * 0.0002);
+        heroBgImg.style.transform = `translateY(${translate}px) scale(${scale})`;
+      }
+
+      // Title Zoom & Fade Effect
+      if (heroContentContainer) {
+        // Calculate progress (0 to 1) over the first 70% of the hero height
+        const progress = Math.min(scrollY / (heroHeight * 0.7), 1);
+        
+        const titleScale = 1 + (progress * 0.15); // Grow 15%
+        const titleOpacity = 1 - (progress * 1.2); // Fade out (faster than zoom)
+        const titleTranslate = scrollY * -0.2; // Move up slowly
+        
+        heroContentContainer.style.transform = `translateY(${titleTranslate}px) scale(${titleScale})`;
+        heroContentContainer.style.opacity = Math.max(titleOpacity, 0);
+      }
     }
   }
 

@@ -454,6 +454,7 @@ ul {
   text-align: center;
   padding: 350px 24px 0; /* Aligning title with boy's lower lip */
   max-width: 1200px;
+  will-change: transform, opacity;
 }
 
 .hero__icon {
