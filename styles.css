@@ -1010,6 +1010,112 @@ ul {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   PREMIUM BANNER SLIDER
+   ═══════════════════════════════════════════════════════════════ */
+.banner-slider {
+  position: relative;
+  width: 100%;
+  max-width: 1099px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 1099 / 237;
+}
+
+.banner-slider__wrapper {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.banner-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.banner-slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Controls */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: all var(--transition-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.banner-slider:hover .slider-btn {
+  opacity: 1;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn--prev { left: 24px; }
+.slider-btn--next { right: 24px; }
+
+/* Indicators */
+.slider-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dot.active {
+  background: var(--pink-hover);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .banner-slider {
+    aspect-ratio: auto;
+    height: 160px;
+  }
+  
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PRINT STYLES
    ═══════════════════════════════════════════════════════════════ */
 @media print {

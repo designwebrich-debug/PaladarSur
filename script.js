@@ -153,6 +153,81 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── HOVER SOUND EFFECT (optional subtle) ────────────────────
   // Disabled by default — uncomment to enable subtle click feedback
 
+  // ─── PREMIUM BANNER SLIDER ──────────────────────────────────
+  const sliderWrapper = document.getElementById('slider-wrapper');
+  const slides = document.querySelectorAll('.banner-slide');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const dots = document.querySelectorAll('.dot');
+  
+  if (sliderWrapper && slides.length > 0) {
+    let currentIndex = 0;
+    let autoplayInterval;
+    const AUTOPLAY_DELAY = 5000;
+    
+    function updateSlider() {
+      // Update wrapper position
+      sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+    }
+    
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+    
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
+    }
+    
+    function stopAutoplay() {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+    }
+    
+    // Event Listeners
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startAutoplay(); // Reset timer
+      });
+    }
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startAutoplay(); // Reset timer
+      });
+    }
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider();
+        startAutoplay(); // Reset timer
+      });
+    });
+    
+    // Pause on hover
+    const sliderContainer = document.querySelector('.banner-slider');
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mouseenter', stopAutoplay);
+      sliderContainer.addEventListener('mouseleave', startAutoplay);
+    }
+    
+    // Initial start
+    startAutoplay();
+  }
+
   // ─── CONSOLE BRANDING ────────────────────────────────────────
   console.log(
     '%c🌿 Paladar Sur® — Somos Tradición Desde 1975',
