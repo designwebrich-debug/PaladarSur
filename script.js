@@ -57,17 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ─── SCROLL ANIMATIONS (IntersectionObserver) ────────────────
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-3d');
 
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -60px 0px',
+    rootMargin: '0px 0px -100px 0px',
     threshold: 0.1
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // Special handling for staggered cards
+        if (entry.target.classList.contains('animate-3d')) {
+          const cards = Array.from(document.querySelectorAll('.animate-3d'));
+          const index = cards.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${index * 0.15}s`;
+        }
+        
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
@@ -109,50 +116,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroTitleSub = document.querySelector('.hero__title-sub');
   const heroTitleMain = document.querySelector('.hero__title-main');
 
+  const varietyCards = document.querySelectorAll('.variety-card');
+
   function handleParallax() {
     const scrollY = window.scrollY;
     const hero = document.querySelector('.hero');
     if (!hero) return;
     const heroHeight = hero.offsetHeight;
     
+    // 1. Hero Effects
     if (scrollY <= heroHeight) {
       const progress = Math.min(scrollY / (heroHeight * 0.8), 1);
-      const easeProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease out
       
-      // 1. Background Image Parallax
+      // Background Image Parallax
       if (heroBgImg) {
         const translate = scrollY * 0.35;
         const scale = 1 + (progress * 0.05);
         heroBgImg.style.transform = `translateY(${translate}px) scale(${scale})`;
       }
 
-      // 2. Ultimate Title Effect
+      // Ultimate Title Effect
       if (heroContentContainer) {
-        // Main Container Fade & Subtle Scale
         const containerScale = 1 + (progress * 0.1);
         const containerOpacity = 1 - (progress * 1.1);
-        const containerBlur = progress * 8; // Bloom effect
+        const containerBlur = progress * 8;
         
         heroContentContainer.style.opacity = Math.max(containerOpacity, 0);
         heroContentContainer.style.filter = `blur(${containerBlur}px)`;
         
-        // Subtitle: Faster lift + faster expansion
         if (heroTitleSub) {
           const subTranslate = scrollY * -0.4;
-          const subSpacing = progress * 12; // Expand letters
+          const subSpacing = progress * 12;
           heroTitleSub.style.transform = `translateY(${subTranslate}px) scale(${containerScale})`;
           heroTitleSub.style.letterSpacing = `${subSpacing}px`;
         }
         
-        // Main Title: Slower lift + slower expansion
         if (heroTitleMain) {
           const mainTranslate = scrollY * -0.15;
-          const mainSpacing = progress * 6; // Subtle expansion
+          const mainSpacing = progress * 6;
           heroTitleMain.style.transform = `translateY(${mainTranslate}px) scale(${containerScale})`;
           heroTitleMain.style.letterSpacing = `${mainSpacing}px`;
         }
       }
     }
+
+    // 2. Category Cards Floating Parallax
+    varietyCards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const viewHeight = window.innerHeight;
+      
+      // Only animate if card is near the viewport
+      if (rect.top < viewHeight && rect.bottom > 0) {
+        // Subtle offset based on the card's position in the viewport
+        const speed = (index % 2 === 0) ? 0.05 : 0.08;
+        const yOffset = (rect.top - viewHeight / 2) * speed;
+        // Don't override the 3D entrance if it's still animating (classes are managed via visible)
+        if (card.classList.contains('visible')) {
+          card.style.transform = `translateY(${yOffset}px)`;
+        }
+      }
+    });
   }
 
   // ─── SCROLL EVENT (throttled with rAF) ───────────────────────
