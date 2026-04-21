@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paladar Sur® — Somos Tradición Desde 1975</title>
+  <meta name="description" content="Paladar Sur — Restaurante de tradición desde 1975. Celebra el Día de la Madre con nuestro menú especial. Reserva ahora.">
+  <link rel="icon" href="assets/icono-circulo-blanco.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NAVBAR                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__logo" id="nav-logo">
+        <img src="assets/logo-verde.png" alt="Paladar Sur" class="navbar__logo-img navbar__logo-img--green">
+        <img src="assets/logo-blanco.png" alt="Paladar Sur" class="navbar__logo-img navbar__logo-img--white">
+      </a>
+      <ul class="navbar__menu" id="nav-menu">
+        <li><a href="#hero" class="navbar__link">INICIO</a></li>
+        <li><a href="#variedad" class="navbar__link">CATEGORIAS</a></li>
+        <li><a href="#menu-section" class="navbar__link">MENÚ</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <a href="https://wa.me/573024594428?text=Hola%20%F0%9F%8C%BF%E2%9C%A8%20me%20gustar%C3%ADa%20ver%20el%20men%C3%BA" 
+           class="navbar__btn-whatsapp" id="btn-whatsapp" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          NUESTRO MENÚ
+        </a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="navbar__mobile-menu" id="mobile-menu">
+      <ul>
+        <li><a href="#hero" class="navbar__link">INICIO</a></li>
+        <li><a href="#variedad" class="navbar__link">CATEGORIAS</a></li>
+        <li><a href="#menu-section" class="navbar__link">MENÚ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO SECTION                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="hero" class="hero">
+    <div class="hero__bg">
+      <img src="assets/hero-family.png" alt="Familia celebrando el Día de la Madre" class="hero__bg-img">
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title animate-on-scroll">
+        <span class="hero__title-sub">SOMOS TRADICIÓN</span>
+        <span class="hero__title-main">DESDE <em>1975</em></span>
+      </h1>
+      <a href="https://wa.me/573024594428?text=Hola%20%F0%9F%8C%BF%E2%9C%A8%20quiero%20reservar%20para%20el%20D%C3%ADa%20de%20la%20Madre" 
+         class="hero__whatsapp animate-on-scroll" id="hero-whatsapp" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        IR A CHAT
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FLOATING WHATSAPP BUTTON                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <a href="https://wa.me/573024594428?text=Hola%20%F0%9F%8C%BF%E2%9C%A8%20quiero%20reservar%20para%20el%20D%C3%ADa%20de%20la%20Madre" 
+     class="whatsapp-float" id="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PLATOS DESTACADOS                           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="platos" class="section section--white">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <p class="section__label">PLATOS DESTACADOS PARA</p>
+        <h2 class="section__title section__title--pink">CENAR CON MAMÁ</h2>
+      </div>
+      <div class="dishes-grid animate-on-scroll">
+        <a href="#" class="dish-card" id="dish-sobrebarriga">
+          <img src="assets/sobrebarriga.png" alt="Sobrebarriga en Salsa Criolla" class="dish-card__img" loading="lazy">
+        </a>
+        <a href="#" class="dish-card" id="dish-arroz">
+          <img src="assets/arrox-mixto.png" alt="Arroz Mixto Tipo Paella" class="dish-card__img" loading="lazy">
+        </a>
+        <a href="#" class="dish-card" id="dish-albondigas">
+          <img src="assets/albondigas.png" alt="Albóndigas en Salsa Criolla" class="dish-card__img" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- VEN CON MAMÁ BANNER                        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="ven-con-mama" class="section section--gray">
+    <div class="container">
+      <div class="banner-full animate-on-scroll">
+        <img src="assets/banner-madre.png" alt="Ven con Mamá — El detalle corre por nuestra cuenta" class="banner-full__img" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="variedad" class="section section--white">
+    <div class="container">
+      <div class="variety-banner-img-container animate-on-scroll">
+        <img src="assets/variety-banner.png" alt="Todos nuestros platos vienen con 2 guarniciones más 1 ensalada verde" class="variety-banner-img">
+      </div>
+
+      <div class="variety-grid animate-on-scroll">
+        <!-- New PNG Cards -->
+        <a href="https://wa.me/573024594428?text=Hola%20%F0%9F%8C%BF%E2%9C%A8%20quisiera%20pedir%20unas%20ensaladas" class="variety-card" target="_blank">
+          <img src="assets/card-ensaladas.png" alt="Ensaladas" class="variety-card__img">
+        </a>
+        <a href="https://wa.me/573024594428?text=Hola%20%F0%9F%8C%BF%E2%9C%A8%20quisiera%20reservar%20mi%20plato%20de%20prote%C3%ADna" class="variety-card" target="_blank">
+          <img src="assets/card-proteina.png" alt="Proteína" class="variety-card__img">
+        </a>
+        <a href="https://wa.me/573024594428?text=Hola%20%F0%9F%8C%BF%E2%9C%A8%20quisiera%20pedir%20unos%20postres" class="variety-card" target="_blank">
+          <img src="assets/card-postres.png" alt="Postres" class="variety-card__img">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NUESTRO MENÚ PARA MAMÁ                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="menu-section" class="section section--white">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <p class="section__label">NUESTRO MENÚ</p>
+        <h2 class="section__title section__title--pink">PARA MAMÁ</h2>
+        <p class="section__subtitle">DESCÁRGALA EN PDF</p>
+      </div>
+      <div class="menu-image animate-on-scroll">
+        <img src="assets/menu.png" alt="Menú especial Día de la Madre — Paladar Sur" class="menu-image__img" loading="lazy">
+      </div>
+      <div class="menu-cta animate-on-scroll">
+        <a href="https://wa.me/573024594428?text=Hola%20%F0%9F%8C%BF%E2%9C%A8%20quiero%20elegir%20mi%20men%C3%BA%20para%20el%20D%C3%ADa%20de%20la%20Madre" 
+           class="btn-whatsapp-cta" id="menu-whatsapp-cta" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ELIGE AQUÍ TU MENÚ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FOOTER                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer id="footer" class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo-blanco.png" alt="Paladar Sur" class="footer__logo" loading="lazy">
+        <p class="footer__tagline">Somos tradición desde 1975</p>
+        <div class="footer__contact">
+          <p><strong>Dirección:</strong> Cra 24 #10-45, Bogotá</p>
+          <p><strong>Teléfono:</strong> +57 302 459 4428</p>
+          <p><strong>Horario:</strong> Lun - Dom · 11:00 AM - 10:00 PM</p>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/573024594428" class="footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.123456789!2d-74.09!3d4.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMDAuMCJOIDc0wrAwNScyNC4wIlc!5e0!3m2!1ses!2sco!4v1234567890" 
+          width="100%" height="220" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Paladar Sur"></iframe>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Paladar Sur® — Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

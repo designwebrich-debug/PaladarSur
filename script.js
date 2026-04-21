@@ -1,0 +1,165 @@
+/* ═══════════════════════════════════════════════════════════════
+   PALADAR SUR® — ONE PAGE LANDING — JAVASCRIPT
+   Apple-inspired interactions & scroll animations
+   ═══════════════════════════════════════════════════════════════ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  'use strict';
+
+  // ─── DOM REFERENCES ───────────────────────────────────────────
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('.navbar__link') : [];
+
+  // ─── SCROLL PROGRESS BAR ─────────────────────────────────────
+  const progressBar = document.createElement('div');
+  progressBar.classList.add('scroll-progress');
+  document.body.prepend(progressBar);
+
+  // ─── NAVBAR SCROLL EFFECT ────────────────────────────────────
+  let lastScroll = 0;
+  const SCROLL_THRESHOLD = 60;
+
+  function handleNavbarScroll() {
+    const currentScroll = window.scrollY;
+
+    // Add/remove scrolled class
+    if (currentScroll > SCROLL_THRESHOLD) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    // Update progress bar
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (currentScroll / docHeight) * 100;
+    progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+
+    lastScroll = currentScroll;
+  }
+
+  // ─── HAMBURGER MENU ──────────────────────────────────────────
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ─── SCROLL ANIMATIONS (IntersectionObserver) ────────────────
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(el => observer.observe(el));
+
+  // ─── SMOOTH SCROLL FOR ANCHOR LINKS ──────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        const offsetTop = targetEl.offsetTop - 72;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // ─── LANGUAGE TOGGLE ─────────────────────────────────────────
+  const langToggle = document.getElementById('lang-toggle');
+  if (langToggle) {
+    const langOptions = langToggle.querySelectorAll('.navbar__lang-option');
+    langToggle.addEventListener('click', () => {
+      langOptions.forEach(opt => opt.classList.toggle('navbar__lang-option--active'));
+    });
+  }
+
+  // ─── PARALLAX EFFECT ON HERO ─────────────────────────────────
+  const heroBgImg = document.querySelector('.hero__bg-img');
+
+  function handleParallax() {
+    if (!heroBgImg) return;
+    const scrollY = window.scrollY;
+    const heroHeight = document.querySelector('.hero').offsetHeight;
+    
+    if (scrollY <= heroHeight) {
+      const translate = scrollY * 0.3;
+      const scale = 1 + (scrollY * 0.0002);
+      heroBgImg.style.transform = `translateY(${translate}px) scale(${scale})`;
+    }
+  }
+
+  // ─── SCROLL EVENT (throttled with rAF) ───────────────────────
+  let ticking = false;
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleNavbarScroll();
+        handleParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Initial call
+  handleNavbarScroll();
+
+  // ─── HERO CONTENT ENTRANCE ANIMATION ─────────────────────────
+  const heroContent = document.querySelector('.hero__content');
+  if (heroContent) {
+    const children = heroContent.querySelectorAll('.animate-on-scroll');
+    children.forEach((child, index) => {
+      child.style.transitionDelay = `${0.3 + (index * 0.15)}s`;
+      // Trigger after a short delay
+      setTimeout(() => {
+        child.classList.add('visible');
+      }, 100);
+    });
+  }
+
+  // ─── HOVER SOUND EFFECT (optional subtle) ────────────────────
+  // Disabled by default — uncomment to enable subtle click feedback
+
+  // ─── CONSOLE BRANDING ────────────────────────────────────────
+  console.log(
+    '%c🌿 Paladar Sur® — Somos Tradición Desde 1975',
+    'color: #00ae51; font-size: 16px; font-weight: bold; font-family: system-ui;'
+  );
+  console.log(
+    '%cDesarrollado con ❤️ para el Día de la Madre 2026',
+    'color: #e9a1a6; font-size: 12px; font-family: system-ui;'
+  );
+});
