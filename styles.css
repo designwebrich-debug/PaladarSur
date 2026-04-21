@@ -114,8 +114,9 @@ ul {
   position: relative;
 }
 
-#platos {
+#platos, #ven-con-mama {
   padding: 160px 0; /* Increased distance from hero and bottom */
+  background-color: #ffffff !important;
 }
 
 .section--white {
