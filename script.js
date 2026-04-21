@@ -68,13 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Special handling for staggered cards
-        if (entry.target.classList.contains('animate-3d')) {
-          const cards = Array.from(document.querySelectorAll('.animate-3d'));
-          const index = cards.indexOf(entry.target);
-          entry.target.style.transitionDelay = `${index * 0.15}s`;
-        }
-        
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
@@ -115,8 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroContentContainer = document.querySelector('.hero__content');
   const heroTitleSub = document.querySelector('.hero__title-sub');
   const heroTitleMain = document.querySelector('.hero__title-main');
-
-  const varietyCards = document.querySelectorAll('.variety-card');
 
   function handleParallax() {
     const scrollY = window.scrollY;
@@ -159,23 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-
-    // 2. Category Cards Floating Parallax
-    varietyCards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const viewHeight = window.innerHeight;
-      
-      // Only animate if card is near the viewport
-      if (rect.top < viewHeight && rect.bottom > 0) {
-        // Subtle offset based on the card's position in the viewport
-        const speed = (index % 2 === 0) ? 0.05 : 0.08;
-        const yOffset = (rect.top - viewHeight / 2) * speed;
-        // Don't override the 3D entrance if it's still animating (classes are managed via visible)
-        if (card.classList.contains('visible')) {
-          card.style.transform = `translateY(${yOffset}px)`;
-        }
-      }
-    });
   }
 
   // ─── SCROLL EVENT (throttled with rAF) ───────────────────────
