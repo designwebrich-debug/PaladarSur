@@ -187,6 +187,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── HOVER SOUND EFFECT (optional subtle) ────────────────────
   // Disabled by default — uncomment to enable subtle click feedback
 
+  // ─── INTERACTIVE 3D TILT & GLOSS ────────────────────────────
+  varietyCards.forEach(card => {
+    const gloss = card.querySelector('.variety-card__gloss');
+    
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calculate rotation (max 15 degrees)
+      const rotateX = ((y - centerY) / centerY) * -15;
+      const rotateY = ((x - centerX) / centerX) * 15;
+      
+      // Apply transforms
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-20px) scale(1.02)`;
+      
+      // Update gloss position
+      if (gloss) {
+        const percentX = (x / rect.width) * 100;
+        const percentY = (y / rect.height) * 100;
+        gloss.style.setProperty('--x', `${percentX}%`);
+        gloss.style.setProperty('--y', `${percentY}%`);
+      }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      // Reset with smooth transition
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)`;
+    });
+  });
+
   // ─── PREMIUM BANNER SLIDER ──────────────────────────────────
   const sliderWrapper = document.getElementById('slider-wrapper');
   const slides = document.querySelectorAll('.banner-slide');
