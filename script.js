@@ -106,6 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── PARALLAX EFFECT ON HERO ─────────────────────────────────
   const heroBgImg = document.querySelector('.hero__bg-img');
   const heroContentContainer = document.querySelector('.hero__content');
+  const heroTitleSub = document.querySelector('.hero__title-sub');
+  const heroTitleMain = document.querySelector('.hero__title-main');
 
   function handleParallax() {
     const scrollY = window.scrollY;
@@ -114,24 +116,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroHeight = hero.offsetHeight;
     
     if (scrollY <= heroHeight) {
-      // Background Image Parallax
+      const progress = Math.min(scrollY / (heroHeight * 0.8), 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease out
+      
+      // 1. Background Image Parallax
       if (heroBgImg) {
-        const translate = scrollY * 0.3;
-        const scale = 1 + (scrollY * 0.0002);
+        const translate = scrollY * 0.35;
+        const scale = 1 + (progress * 0.05);
         heroBgImg.style.transform = `translateY(${translate}px) scale(${scale})`;
       }
 
-      // Title Zoom & Fade Effect
+      // 2. Ultimate Title Effect
       if (heroContentContainer) {
-        // Calculate progress (0 to 1) over the first 70% of the hero height
-        const progress = Math.min(scrollY / (heroHeight * 0.7), 1);
+        // Main Container Fade & Subtle Scale
+        const containerScale = 1 + (progress * 0.1);
+        const containerOpacity = 1 - (progress * 1.1);
+        const containerBlur = progress * 8; // Bloom effect
         
-        const titleScale = 1 + (progress * 0.15); // Grow 15%
-        const titleOpacity = 1 - (progress * 1.2); // Fade out (faster than zoom)
-        const titleTranslate = scrollY * -0.2; // Move up slowly
+        heroContentContainer.style.opacity = Math.max(containerOpacity, 0);
+        heroContentContainer.style.filter = `blur(${containerBlur}px)`;
         
-        heroContentContainer.style.transform = `translateY(${titleTranslate}px) scale(${titleScale})`;
-        heroContentContainer.style.opacity = Math.max(titleOpacity, 0);
+        // Subtitle: Faster lift + faster expansion
+        if (heroTitleSub) {
+          const subTranslate = scrollY * -0.4;
+          const subSpacing = progress * 12; // Expand letters
+          heroTitleSub.style.transform = `translateY(${subTranslate}px) scale(${containerScale})`;
+          heroTitleSub.style.letterSpacing = `${subSpacing}px`;
+        }
+        
+        // Main Title: Slower lift + slower expansion
+        if (heroTitleMain) {
+          const mainTranslate = scrollY * -0.15;
+          const mainSpacing = progress * 6; // Subtle expansion
+          heroTitleMain.style.transform = `translateY(${mainTranslate}px) scale(${containerScale})`;
+          heroTitleMain.style.letterSpacing = `${mainSpacing}px`;
+        }
       }
     }
   }
