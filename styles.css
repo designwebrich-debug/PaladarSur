@@ -622,10 +622,11 @@ ul {
 .variety-card.animate-3d:nth-child(3) { transition-delay: 0.2s; }
 
 .variety-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: var(--shadow-lg);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(-20px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 10;
 }
 
 .dish-card__img {
