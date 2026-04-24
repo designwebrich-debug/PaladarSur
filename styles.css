@@ -20,6 +20,7 @@
   /* Accent */
   --pink: #e9a1a6;
   --pink-light: #f5d5d8;
+  --pink-hover: #d88a8f;
   --pink-bg: #fdf2f3;
 
   /* Grays */
@@ -122,7 +123,7 @@ ul {
 
 #ven-con-mama {
   padding-top: 80px; /* Adjusted to 15% visual space */
-  padding-bottom: 120px;
+  padding-bottom: 80px;
   background-color: #ffffff !important;
 }
 
@@ -136,7 +137,7 @@ ul {
 
 .section__header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 120px;
 }
 
 .section__label {
@@ -174,6 +175,14 @@ ul {
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-top: 8px;
+}
+ 
+.section__title-img {
+  max-width: 497px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 /* ─── ANIMATIONS ───────────────────────────────────────────────── */
@@ -629,18 +638,21 @@ ul {
 
 .variety-card.animate-3d {
   opacity: 0;
-  transform: translateY(40px);
+  transform: perspective(1200px) translateY(100px) rotateX(-20deg) scale(0.9);
+  transition: opacity 1.2s cubic-bezier(0.2, 0, 0, 1), 
+              transform 1.2s cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform, opacity;
 }
 
 .variety-card.animate-3d.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: perspective(1200px) translateY(0) rotateX(0) scale(1);
 }
 
-/* Sequential Delays handled in CSS for better performance */
-.variety-card.animate-3d:nth-child(1) { transition-delay: 0s; }
-.variety-card.animate-3d:nth-child(2) { transition-delay: 0.1s; }
-.variety-card.animate-3d:nth-child(3) { transition-delay: 0.2s; }
+/* Sequential Delays for 3D Entrance */
+.variety-card.animate-3d:nth-child(1) { transition-delay: 0.1s; }
+.variety-card.animate-3d:nth-child(2) { transition-delay: 0.25s; }
+.variety-card.animate-3d:nth-child(3) { transition-delay: 0.4s; }
 
 .variety-card:hover {
   transform: translateY(-20px) scale(1.02);
@@ -687,12 +699,12 @@ ul {
 .variety-banner-img-container {
   text-align: center;
   margin-bottom: 50px;
-  padding-top: 100px;
+  padding-top: 40px;
   background: var(--white);
 }
 
 .variety-banner-img {
-  max-width: 630px; /* Reduced by 37% from 1000px */
+  max-width: 497px; /* Increased by 38% from 360px */
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -716,21 +728,19 @@ ul {
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
-  max-width: 1300px; /* Increased to allow larger cards */
+  max-width: 1000px; /* Adjusted to accommodate larger cards */
   margin: 0 auto;
-  padding: 0 0 100px;
+  padding: 0 0 0;
   background: var(--white);
 }
 
 .variety-card {
-  flex: 0 0 420px; /* Enlarge cards proportionally */
+  flex: 0 0 317px; /* Increased by 38% from 230px */
   text-decoration: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   background: transparent;
-  box-shadow: none !important;
-  border: none !important;
-  margin: 0 -25px;
+  margin: 0 -10px; /* Same distance preserved */
   z-index: 1;
 }
 
@@ -741,18 +751,16 @@ ul {
 .variety-card__img {
   width: 100%;
   height: auto;
-  /* Removed box-shadow and border-radius to let the PNG be the only box */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .variety-card:hover {
-  transform: scale(1.05) translateY(-8px);
-  z-index: 2; /* Bring to front on hover */
+  transform: translateY(-15px);
+  z-index: 10;
 }
 
 .variety-card:hover .variety-card__img {
-  filter: brightness(1.03);
-  box-shadow: none !important;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
 }
 
 @media (max-width: 1024px) {
@@ -1063,6 +1071,20 @@ ul {
 /* ═══════════════════════════════════════════════════════════════
    PREMIUM BANNER SLIDER
    ═══════════════════════════════════════════════════════════════ */
+#banner-slider-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+#variedad {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#menu-section {
+  padding-top: 0 !important;
+}
+
 .banner-slider {
   position: relative;
   width: 100%;
@@ -1091,6 +1113,8 @@ ul {
   object-fit: cover;
   display: block;
 }
+
+
 
 /* Controls */
 .slider-btn {
