@@ -419,7 +419,7 @@ ul {
 }
 
 .navbar__mobile-menu .navbar__link {
-  color: var(--white);
+  color: var(--white) !important;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1.5px;
