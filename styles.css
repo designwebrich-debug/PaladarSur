@@ -914,16 +914,13 @@ ul {
     display: none;
   }
 
-  .navbar__btn-ecommerce {
-    display: none;
-  }
-
-  .navbar__lang {
+  .navbar__btn-whatsapp {
     display: none;
   }
 
   .navbar__hamburger {
     display: flex;
+    margin-left: auto;
   }
 
   .navbar__mobile-menu {
@@ -931,12 +928,14 @@ ul {
   }
 
   .hero__title-sub {
+    margin-bottom: 0;
     letter-spacing: 3px;
   }
 
   .hero__title-main {
     font-size: clamp(42px, 14vw, 80px);
     letter-spacing: 2px;
+    line-height: 1.1;
   }
 
   .hero__cta {
