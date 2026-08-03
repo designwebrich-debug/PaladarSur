@@ -459,9 +459,11 @@ ul {
 .hero__content {
   position: relative;
   z-index: 1;
-  text-align: center;
-  padding: 350px 24px 0; /* Aligning title with boy's lower lip */
+  text-align: left;
+  padding: 180px 24px 0 6%;
   max-width: 1200px;
+  width: 100%;
+  margin-right: auto;
   will-change: transform, opacity, filter;
 }
 
@@ -479,7 +481,7 @@ ul {
 .hero__icon-img {
   width: 64px;
   height: 64px;
-  margin: 0 auto;
+  margin: 0;
   transition: transform var(--transition-fast);
 }
 
@@ -490,31 +492,31 @@ ul {
 .hero__title {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0;
-  margin-bottom: 12px; /* Closer to the button */
+  margin-bottom: 24px;
 }
 
 .hero__title-sub {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 5vw, 48px);
-  font-weight: 500;
-  color: var(--white);
-  letter-spacing: 8px;
+  font-size: clamp(20px, 4vw, 36px);
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: -18px; /* Tighter title text spacing */
+  margin-bottom: -5px;
 }
 
 .hero__title-main {
   font-family: var(--font-heading);
-  font-size: clamp(48px, 12vw, 140px);
+  font-size: clamp(36px, 8vw, 84px);
   font-weight: 900;
-  color: var(--white);
-  letter-spacing: 4px;
-  line-height: 1;
+  color: #1a1a1a;
+  letter-spacing: 2px;
+  line-height: 1.05;
   text-transform: uppercase;
   font-style: normal;
-  white-space: nowrap; /* Keep DESDE 1975 on one line */
+  white-space: normal;
 }
 
 .hero__title-main em {
