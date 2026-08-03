@@ -194,80 +194,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const varietyCards = document.querySelectorAll('.variety-card');
 
-  // ─── PREMIUM BANNER SLIDER ──────────────────────────────────
-  const sliderWrapper = document.getElementById('slider-wrapper');
-  const slides = document.querySelectorAll('.banner-slide');
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  const dots = document.querySelectorAll('.dot');
-  
-  if (sliderWrapper && slides.length > 0) {
-    let currentIndex = 0;
-    let autoplayInterval;
-    const AUTOPLAY_DELAY = 7000;
+  // ─── PREMIUM BANNER SLIDERS INITIALIZER ────────────────────
+  function initSliders() {
+    const sliderContainers = document.querySelectorAll('.banner-slider');
     
-    function updateSlider() {
-      // Update wrapper position
-      sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    sliderContainers.forEach(container => {
+      const wrapper = container.querySelector('.banner-slider__wrapper');
+      const slides = container.querySelectorAll('.banner-slide');
+      const prevBtn = container.querySelector('.slider-btn--prev');
+      const nextBtn = container.querySelector('.slider-btn--next');
+      const dots = container.querySelectorAll('.dot');
       
-      // Update dots
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }
-    
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlider();
-    }
-    
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlider();
-    }
-    
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
-    }
-    
-    function stopAutoplay() {
-      if (autoplayInterval) clearInterval(autoplayInterval);
-    }
-    
-    // Event Listeners
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        nextSlide();
-        startAutoplay(); // Reset timer
-      });
-    }
-    
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        prevSlide();
-        startAutoplay(); // Reset timer
-      });
-    }
-    
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentIndex = index;
+      if (!wrapper || slides.length === 0) return;
+      
+      let currentIndex = 0;
+      let autoplayInterval;
+      const AUTOPLAY_DELAY = 6000;
+      
+      function updateSlider() {
+        wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+      
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
         updateSlider();
-        startAutoplay(); // Reset timer
+      }
+      
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+      }
+      
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
+      }
+      
+      function stopAutoplay() {
+        if (autoplayInterval) clearInterval(autoplayInterval);
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          startAutoplay();
+        });
+      }
+      
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          startAutoplay();
+        });
+      }
+      
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateSlider();
+          startAutoplay();
+        });
       });
+      
+      container.addEventListener('mouseenter', stopAutoplay);
+      container.addEventListener('mouseleave', startAutoplay);
+      startAutoplay();
     });
-    
-    // Pause on hover
-    const sliderContainer = document.querySelector('.banner-slider');
-    if (sliderContainer) {
-      sliderContainer.addEventListener('mouseenter', stopAutoplay);
-      sliderContainer.addEventListener('mouseleave', startAutoplay);
-    }
-    
-    // Initial start
-    startAutoplay();
   }
+  
+  initSliders();
 
   // ─── CONSOLE BRANDING ────────────────────────────────────────
   console.log(
