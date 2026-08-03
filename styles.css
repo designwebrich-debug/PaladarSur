@@ -460,10 +460,12 @@ ul {
   position: relative;
   z-index: 1;
   text-align: left;
-  padding: 180px 24px 0 6%;
+  padding: 72px 24px 0 6%;
   max-width: 1200px;
   width: 100%;
   margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   will-change: transform, opacity, filter;
 }
 
