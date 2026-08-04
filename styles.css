@@ -686,13 +686,13 @@ ul {
   align-items: flex-end;
   gap: -1px;
   padding: 20px 0 50px;
-  max-width: 1020px;
+  max-width: 1750px;
   margin: 0 auto;
 }
 
 .phones-row__item {
-  flex: 1;
-  max-width: 321px;
+  flex: 0 1 574px;
+  max-width: 574px;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
 }
 
@@ -703,6 +703,7 @@ ul {
 
 .phones-row__img {
   width: 100%;
+  max-height: 720px;
   height: auto;
   display: block;
 }
