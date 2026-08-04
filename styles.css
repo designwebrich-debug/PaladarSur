@@ -679,50 +679,74 @@ ul {
   }
 }
 
-/* --- Variety Grid (PNG Cards) --- */
-#variedad {
-  background-color: var(--white) !important;
-}
-
-.variety-grid {
+/* --- iPhone Mockup Showcase --- */
+.iphone-showcase {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0;
-  flex-wrap: nowrap;
-  max-width: 1000px; /* Adjusted to accommodate larger cards */
-  margin: 0 auto;
-  padding: 0 0 0;
-  background: var(--white);
-}
-
-.variety-card {
-  flex: 0 0 317px; /* Increased by 38% from 230px */
-  text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  background: transparent;
-  margin: 0 -10px; /* Same distance preserved */
-  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 480px;
+  padding: 20px 0 40px;
 }
 
-.variety-card:nth-child(2) {
-  z-index: 2; /* Keep middle card slightly above side cards */
+.iphone-mockup {
+  position: absolute;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
 }
 
-.variety-card__img {
+.iphone-mockup__img {
   width: 100%;
   height: auto;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
 }
 
-.variety-card:hover {
-  transform: translateY(-15px);
+/* Left iPhone */
+.iphone-mockup--left {
+  width: 240px;
+  transform: translateX(-160px) scale(0.85) rotate(-6deg);
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* Center iPhone (Hero) */
+.iphone-mockup--center {
+  width: 280px;
+  transform: translateY(-10px) scale(1.05);
+  z-index: 3;
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.25));
+}
+
+/* Right iPhone */
+.iphone-mockup--right {
+  width: 240px;
+  transform: translateX(160px) scale(0.85) rotate(6deg);
+  z-index: 2;
+  opacity: 0.9;
+}
+
+/* Interactive Hover Layering */
+.iphone-mockup--left:hover {
+  transform: translateX(-140px) scale(0.95) rotate(-2deg);
   z-index: 10;
+  opacity: 1;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.22));
 }
 
-.variety-card:hover .variety-card__img {
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+.iphone-mockup--center:hover {
+  transform: translateY(-20px) scale(1.1);
+  z-index: 10;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.3));
+}
+
+.iphone-mockup--right:hover {
+  transform: translateX(140px) scale(0.95) rotate(2deg);
+  z-index: 10;
+  opacity: 1;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.22));
 }
 
 @media (max-width: 1024px) {
