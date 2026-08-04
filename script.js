@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = imageData.data;
 
       // Threshold: make near-black pixels fully transparent
-      const THRESH = 30;
+      const THRESH = 45;
       for (let i = 0; i < data.length; i += 4) {
         const r = data[i], g = data[i + 1], b = data[i + 2];
         if (r < THRESH && g < THRESH && b < THRESH) {
