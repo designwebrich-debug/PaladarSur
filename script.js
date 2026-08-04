@@ -266,44 +266,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
 
-  // ─── REMOVE BLACK BACKGROUND FROM CAZUELA IMAGE VIA CANVAS ───
-  (function removeDarkBg() {
-    const darkImg = document.querySelector('.phones-row__img--dark');
-    if (!darkImg) return;
-
-    function process(img) {
-      const canvas = document.createElement('canvas');
-      canvas.width  = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      canvas.className = 'phones-row__canvas';
-
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-
-      // Threshold: make near-black pixels fully transparent
-      const THRESH = 45;
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i], g = data[i + 1], b = data[i + 2];
-        if (r < THRESH && g < THRESH && b < THRESH) {
-          data[i + 3] = 0; // transparent
-        }
-      }
-      ctx.putImageData(imageData, 0, 0);
-
-      // Insert canvas right after the img and hide the img
-      img.parentNode.insertBefore(canvas, img.nextSibling);
-      img.classList.add('phones-row__img--replaced');
-    }
-
-    if (darkImg.complete && darkImg.naturalWidth > 0) {
-      process(darkImg);
-    } else {
-      darkImg.addEventListener('load', () => process(darkImg));
-    }
-  })();
-
 });
 
