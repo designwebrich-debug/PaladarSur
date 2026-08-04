@@ -600,8 +600,8 @@ ul {
 .dishes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  max-width: 1190px; /* Reduced by 15% from 1400px */
+  gap: 12px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
