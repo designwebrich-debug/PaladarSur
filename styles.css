@@ -601,32 +601,37 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  max-width: 1400px; /* Increased by 40% from 1000px */
+  max-width: 1190px; /* Reduced by 15% from 1400px */
   margin: 0 auto;
 }
 
 .dish-card {
   position: relative;
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-  box-shadow: var(--shadow-md);
-  background: var(--white);
+  overflow: visible;
+  transition: transform var(--transition-medium);
+  box-shadow: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dish-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
+  box-shadow: none;
 }
 
 .dish-card__img {
-  width: 100%;
+  width: 85%; /* Reduced size by 15% */
   height: auto;
+  margin: 0 auto;
+  display: block;
   transition: transform var(--transition-medium);
 }
 
 .dish-card:hover .dish-card__img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 /* ═══════════════════════════════════════════════════════════════
