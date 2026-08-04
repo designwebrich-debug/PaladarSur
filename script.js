@@ -265,15 +265,100 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  initSliders();
+  // ─── IPHONE FAN SLIDER ───────────────────────────────────────
+  (function initIPhoneFan() {
+    const prevBtn = document.getElementById('ifan-prev');
+    const nextBtn = document.getElementById('ifan-next');
+    const phones  = document.querySelectorAll('.ifan-phone');
+    const dots    = document.querySelectorAll('.ifan-dot');
+    if (!prevBtn || !nextBtn || phones.length === 0) return;
 
-  // ─── CONSOLE BRANDING ────────────────────────────────────────
-  console.log(
-    '%c🌿 Paladar Sur® — Somos Tradición Desde 1975',
-    'color: #00ae51; font-size: 16px; font-weight: bold; font-family: system-ui;'
-  );
-  console.log(
-    '%cDesarrollado con ❤️ para el Día de la Madre 2026',
-    'color: #e9a1a6; font-size: 12px; font-family: system-ui;'
-  );
+    // Images array (3 images, cycling through 5 positions)
+    const images = [
+      'assets/iphone-pasta.png?v=20260804',
+      'assets/iphone-cazuela.png?v=20260804',
+      'assets/iphone-encocado.png?v=20260804'
+    ];
+    const alts = [
+      'Pasta Son del Pacífico',
+      'Cazuela de Pescado',
+      'Encocado Petronio'
+    ];
+
+    // Position names for 5 slots
+    const POSITIONS = ['far-left', 'left', 'center', 'right', 'far-right'];
+
+    // Current "offset" — which image is at center
+    let current = 0; // index into images[]
+    let autoTimer = null;
+
+    function getImgIndex(offset) {
+      return ((current + offset) % images.length + images.length) % images.length;
+    }
+
+    function render() {
+      // 5 visual positions, map each to an image
+      // slots: far-left=-2, left=-1, center=0, right=+1, far-right=+2
+      const offsets = [-2, -1, 0, 1, 2];
+      phones.forEach((phone, i) => {
+        const imgEl  = phone.querySelector('.ifan-phone__img');
+        const idx    = getImgIndex(offsets[i]);
+        phone.setAttribute('data-pos', POSITIONS[i]);
+        imgEl.src    = images[idx];
+        imgEl.alt    = alts[idx];
+        // Dark blend for cazuela (dark bg jpg)
+        if (idx === 1) {
+          imgEl.classList.add('ifan-phone__img--dark');
+        } else {
+          imgEl.classList.remove('ifan-phone__img--dark');
+        }
+      });
+
+      // Dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('ifan-dot--active', i === current);
+      });
+    }
+
+    function next() {
+      current = (current + 1) % images.length;
+      render();
+    }
+
+    function prev() {
+      current = (current - 1 + images.length) % images.length;
+      render();
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(next, 3500);
+    }
+
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
+
+    nextBtn.addEventListener('click', () => { next(); startAuto(); });
+    prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        current = i;
+        render();
+        startAuto();
+      });
+    });
+
+    // Pause on hover
+    const wrapper = document.querySelector('.iphone-fan-wrapper');
+    if (wrapper) {
+      wrapper.addEventListener('mouseenter', stopAuto);
+      wrapper.addEventListener('mouseleave', startAuto);
+    }
+
+    render();
+    startAuto();
+  })();
+
 });

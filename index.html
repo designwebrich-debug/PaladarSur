@@ -235,15 +235,38 @@
         <img src="assets/title-celebra-petronio.png?v=20260804" alt="Celebra Con Nosotros El Petronio 2026" class="section__title-img">
       </div>
 
-      <div class="iphone-showcase animate-on-scroll">
-        <div class="iphone-mockup iphone-mockup--left">
-          <img src="assets/iphone-pasta.png?v=20260804" alt="Pasta Son del Pacífico en iPhone" class="iphone-mockup__img">
+      <!-- iPhone Fan Slider -->
+      <div class="iphone-fan-wrapper animate-on-scroll">
+        <button class="ifan-btn ifan-btn--prev" id="ifan-prev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <div class="iphone-fan-stage" id="ifan-stage">
+          <div class="ifan-phone" data-pos="far-left">
+            <img src="assets/iphone-pasta.png?v=20260804" alt="Pasta Son del Pacífico" class="ifan-phone__img">
+          </div>
+          <div class="ifan-phone" data-pos="left">
+            <img src="assets/iphone-encocado.png?v=20260804" alt="Encocado Petronio" class="ifan-phone__img">
+          </div>
+          <div class="ifan-phone" data-pos="center">
+            <img src="assets/iphone-cazuela.png?v=20260804" alt="Cazuela de Pescado" class="ifan-phone__img ifan-phone__img--dark">
+          </div>
+          <div class="ifan-phone" data-pos="right">
+            <img src="assets/iphone-pasta.png?v=20260804" alt="Pasta Son del Pacífico" class="ifan-phone__img">
+          </div>
+          <div class="ifan-phone" data-pos="far-right">
+            <img src="assets/iphone-encocado.png?v=20260804" alt="Encocado Petronio" class="ifan-phone__img">
+          </div>
         </div>
-        <div class="iphone-mockup iphone-mockup--center">
-          <img src="assets/iphone-cazuela.png?v=20260804" alt="Cazuela de Pescado en iPhone" class="iphone-mockup__img">
-        </div>
-        <div class="iphone-mockup iphone-mockup--right">
-          <img src="assets/iphone-encocado.png?v=20260804" alt="Encocado Petronio en iPhone" class="iphone-mockup__img">
+
+        <button class="ifan-btn ifan-btn--next" id="ifan-next" aria-label="Siguiente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <div class="ifan-dots" id="ifan-dots">
+          <span class="ifan-dot ifan-dot--active"></span>
+          <span class="ifan-dot"></span>
+          <span class="ifan-dot"></span>
         </div>
       </div>
     </div>
