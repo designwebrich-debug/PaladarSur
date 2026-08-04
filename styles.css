@@ -687,15 +687,14 @@ ul {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  min-height: 480px;
-  padding: 20px 0 40px;
+  min-height: 520px;
+  padding: 30px 0 50px;
 }
 
 .iphone-mockup {
   position: absolute;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   cursor: pointer;
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
 }
 
 .iphone-mockup__img {
@@ -706,26 +705,49 @@ ul {
 
 /* Left iPhone */
 .iphone-mockup--left {
-  width: 240px;
-  transform: translateX(-160px) scale(0.85) rotate(-6deg);
+  width: 220px;
+  transform: translateX(-190px) scale(0.88) rotate(-7deg);
   z-index: 1;
-  opacity: 0.9;
+  opacity: 0.95;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
 }
 
-/* Center iPhone (Hero) */
+/* Center iPhone (Front Main) */
 .iphone-mockup--center {
-  width: 280px;
-  transform: translateY(-10px) scale(1.05);
-  z-index: 3;
-  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.25));
+  width: 270px;
+  transform: translateY(0) scale(1.08);
+  z-index: 5;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
 }
 
 /* Right iPhone */
 .iphone-mockup--right {
-  width: 240px;
-  transform: translateX(160px) scale(0.85) rotate(6deg);
+  width: 220px;
+  transform: translateX(190px) scale(0.88) rotate(7deg);
   z-index: 2;
-  opacity: 0.9;
+  opacity: 0.95;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
+}
+
+/* Interactive Hover Layering */
+.iphone-mockup--left:hover {
+  transform: translateX(-170px) scale(0.96) rotate(-2deg);
+  z-index: 10;
+  opacity: 1;
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.25));
+}
+
+.iphone-mockup--center:hover {
+  transform: translateY(-15px) scale(1.12);
+  z-index: 10;
+  filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.35));
+}
+
+.iphone-mockup--right:hover {
+  transform: translateX(170px) scale(0.96) rotate(2deg);
+  z-index: 10;
+  opacity: 1;
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.25));
 }
 
 /* Interactive Hover Layering */
