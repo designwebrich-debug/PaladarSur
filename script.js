@@ -261,10 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       container.addEventListener('mouseenter', stopAutoplay);
       container.addEventListener('mouseleave', startAutoplay);
-      startAutoplay();
     });
   }
-  
 
+  initSliders();
 });
 
