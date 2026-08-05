@@ -270,11 +270,11 @@ ul {
 }
 
 .navbar__logo-img--green {
-  display: none;
+  display: block;
 }
 
 .navbar__logo-img--white {
-  display: block;
+  display: none;
 }
 
 .navbar.scrolled .navbar__logo-img--green {
@@ -294,9 +294,9 @@ ul {
 .navbar__link {
   font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: var(--white);
+  color: var(--primary, #00ae51);
   transition: color var(--transition-fast), opacity var(--transition-fast);
   position: relative;
 }
@@ -317,7 +317,7 @@ ul {
 }
 
 .navbar.scrolled .navbar__link {
-  color: var(--black);
+  color: var(--primary, #00ae51);
 }
 
 .navbar__btn-whatsapp {
@@ -365,13 +365,13 @@ ul {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--white);
+  background: var(--primary, #00ae51);
   border-radius: 2px;
   transition: all var(--transition-medium);
 }
 
 .navbar.scrolled .navbar__hamburger span {
-  background: var(--black);
+  background: var(--primary, #00ae51);
 }
 
 .navbar__hamburger.active span:nth-child(1) {
