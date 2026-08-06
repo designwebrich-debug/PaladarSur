@@ -950,7 +950,8 @@ ul {
 
   #banner-slider-section {
     display: block !important;
-    padding: 30px 16px !important;
+    padding: 0 16px 40px !important;
+    margin-top: -35px !important;
   }
 
   .variety-grid {
