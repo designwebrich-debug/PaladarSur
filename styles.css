@@ -733,7 +733,7 @@ ul {
     line-height: 0;
   }
   .phones-row__item + .phones-row__item {
-    margin-top: -30px;
+    margin-top: -35px;
   }
 }
 
