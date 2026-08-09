@@ -1,6 +1,6 @@
-# Paladar Sur - Landing Page
+# Paladar Sur — Petronio Álvarez 2026
 
-Premium landing page for Paladar Sur, featuring a minimalist design, Apple-inspired aesthetics, and high-conversion elements.
+Premium landing page for Paladar Sur (Cali, Colombia), featuring the official **Petronio Álvarez 2026** campaign, Pacific gastronomy menu, minimalist design, Apple-inspired aesthetics, and high-conversion elements.
 
 ## Features
 - **Modern Design**: Built with vanilla HTML, CSS, and JS.
